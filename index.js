@@ -25,7 +25,7 @@ const app = new express();
 
 //defines a port
 app.listen(4000, (req,res)=>{
-    console.log('Listening to port 4000...');
+    console.log('API is listening to port 4000...');
 });
 
 //middleware
