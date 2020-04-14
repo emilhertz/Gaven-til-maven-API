@@ -38,12 +38,11 @@ module.exports = (req, res) => {
                         );
                     //returns response which includes cookie with token, status code, and json object
                     return res
-                        //secure hides to cookie from client
-                        .cookie('token', token)
                         .status(200)
                         .json({
-                        message: 'Auth Successful',
-                        isAdmin: user[0].isAdmin
+                            message: 'Auth Successful',
+                            isAdmin: user[0].isAdmin,
+                            token: token
                         })
                 }
                 //runs if password does not match
