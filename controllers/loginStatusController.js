@@ -6,25 +6,13 @@ const jwt = require('jsonwebtoken');
 module.exports = async (req, res) => {
     try {
         let decoded = jwt.verify(req.headers.authorization, 'hemmelig');
-        return res.send('works');
-    } catch (e) {
-        console.log(e);
-        return res.status(401);
-    }
-
-
-
-
-    /*
-    try {
-        //Saving decoded token on variable
-        const decoded = jwt.verify(req.headers.authorization, "hemmelig");
         console.log(decoded);
-        return res.status(200)
-    }
-    //procedure if auth failed
-    catch (e) {
+    } catch (e) {
         return res.status(401)
+            //lig nu SKAL jeg sende noget json el. andet med for at slutte requesten.
+            //er der en anden måde man kan slutte en request på, da json ikke bliver brugt til noget?
+            .json({
+                message: 'Auth failed'
+            });
     }
-     */
 };

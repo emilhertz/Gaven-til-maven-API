@@ -40,7 +40,7 @@ app.use((req, res, next) => {
 });
 
 //read
-app.get('/check', loginStatusController);
+app.get('/check', user_auth, );
 
 app.get('/restaurant', getRestaurantsController);
 
