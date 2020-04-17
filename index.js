@@ -51,3 +51,4 @@ app.post('/user/create', storeUserController);
 app.post('/restaurant/create', user_auth, admin_auth, storeRestaurantController);
 
 app.post('/login', loginController);
+

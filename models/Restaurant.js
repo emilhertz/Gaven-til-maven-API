@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const uniqueValidator = require('mongoose-unique-validator');
 
 const restaurantSchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     address: {
         streetName: {
@@ -40,6 +42,8 @@ const restaurantSchema = new Schema({
 
     }
 });
+
+restaurantSchema.plugin(uniqueValidator);
 
 const Restaurant = mongoose.model("Restaurant", restaurantSchema);
 

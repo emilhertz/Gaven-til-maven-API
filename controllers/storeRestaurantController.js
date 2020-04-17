@@ -3,7 +3,7 @@ const Restaurant = require('../models/Restaurant');
 
 module.exports = async (req, res)=>{
     try{
-        await Restaurant.create({ ...req.body });
+        await Restaurant.create({ ...req.body, adminId: req.userData.userId});
         await res.send({
             created: true
         })
