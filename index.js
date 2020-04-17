@@ -13,6 +13,7 @@ const storeUserController = require('./controllers/storeUserController');
 const storeRestaurantController = require('./controllers/storeRestaurantController');
 const getRestaurantsController = require('./controllers/getRestaurantsController');
 const getUserController = require('./controllers/getUserController');
+const loginStatusController = require('./controllers/loginStatusController');
 
 //import middleware
 const user_auth = require('./middleware/user_authorization');
@@ -41,6 +42,8 @@ app.use((req, res, next) => {
 });
 
 //read
+app.get('/check', loginStatusController);
+
 app.get('/restaurant', getRestaurantsController);
 
 app.get('/user', getUserController);
