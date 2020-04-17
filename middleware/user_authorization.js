@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
         //Sending back error
         return res.status(401)
             .json({
-                message: 'bla '
+                message: 'Auth failed'
             })
     }
 };
