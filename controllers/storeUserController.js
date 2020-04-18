@@ -18,10 +18,18 @@ module.exports =  (req, res)=>{
              email: req.body.email,
              isAdmin: req.body.isAdmin
          })
-            //status code 201: "User created"
-            return res.status(201).json({
-                created: true
-            })
+             //status code 201: "User created"
+             .then(response => {return res.status(201).json({
+                 created: true
+             })})
+             .catch(error => {
+                 console.log(error.message);
+                 return res.status(401).json({
+                     errors: error.message
+                 })
+             })
+
+
         }
     })
-}
+};
