@@ -3,7 +3,6 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
 
 //Connect to database
 mongoose.connect('mongodb+srv://emilhertz:toQfuf-qebxi6-jynqic@gaventilmaven-lbpln.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
@@ -13,6 +12,7 @@ const storeUserController = require('./controllers/storeUserController');
 const storeRestaurantController = require('./controllers/storeRestaurantController');
 const getRestaurantsController = require('./controllers/getRestaurantsController');
 const getUserController = require('./controllers/getUserController');
+const loginStatusController = require('./controllers/loginStatusController');
 
 //import middleware
 const user_auth = require('./middleware/user_authorization');
@@ -31,7 +31,6 @@ app.listen(4000, (req,res)=>{
 //middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cookieParser());
 
 //Thomas' trylledrik. Tillader samtlige CORS
 app.use((req, res, next) => {
@@ -41,6 +40,8 @@ app.use((req, res, next) => {
 });
 
 //read
+app.get('/check', user_auth, );
+
 app.get('/restaurant', getRestaurantsController);
 
 app.get('/user', getUserController);
