@@ -35,7 +35,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 //Thomas' trylledrik. Tillader samtlige CORS
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', '*');
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     next()
 });
 
@@ -58,4 +59,4 @@ app.post('/login', loginController);
 app.post('/reservation', user_auth, postReservationController);
 
 //Delete
-app.delete('/restaurant', deleteRestaurantController);
+app.delete('/restaurant', user_auth, deleteRestaurantController);

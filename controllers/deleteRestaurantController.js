@@ -2,7 +2,8 @@ const Restaurant = require('../models/Restaurant');
 
 module.exports = (req, res) => {
     try{
-        Restaurant.delete({restaurantId: req.userData.restaurantId, adminId: req.userData.adminId});
+        console.log(req);
+        Restaurant.delete({restaurantId: req.body.restaurantId, adminId: req.userData.adminId});
         res.status(200).json({
             message: "Restaurant er nu slettet"
         })
