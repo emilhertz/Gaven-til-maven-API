@@ -1,1 +1,3 @@
-const Restaurant = require('.../models/restaurant')
+const Restaurant = require('../models/Restaurant');
+
+
