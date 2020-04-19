@@ -55,7 +55,8 @@ app.post('/user/create', storeUserController);
 
 app.post('/restaurant/create', user_auth, admin_auth, storeRestaurantController);
 
-app.delete('/restaurant', deleteRestaurantController);
-
 app.post('/login', loginController);
 
+//Delete
+
+app.delete('/restaurant', deleteRestaurantController);
