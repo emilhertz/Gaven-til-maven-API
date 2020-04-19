@@ -12,10 +12,10 @@ const storeUserController = require('./controllers/storeUserController');
 const storeRestaurantController = require('./controllers/storeRestaurantController');
 const getRestaurantsController = require('./controllers/getRestaurantsController');
 const getUserController = require('./controllers/getUserController');
-const loginStatusController = require('./controllers/loginStatusController');
 const adminRestaurantsController = require('./controllers/adminRestaurantsController');
 const deleteRestaurantController = require('./controllers/deleteRestaurantController');
 const postReservationController = require('./controllers/postReservationController');
+const checkUserController = require('./controllers/checkUserController');
 
 //import middleware
 const user_auth = require('./middleware/user_authorization');
@@ -43,7 +43,7 @@ app.use((req, res, next) => {
 });
 
 //read
-app.get('/check', user_auth, );
+app.get('/check', user_auth, checkUserController);
 
 app.get('/restaurant', getRestaurantsController);
 
