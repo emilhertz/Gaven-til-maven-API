@@ -15,17 +15,16 @@ const reservationSchema = new Schema({
     comment: {
         type: String
     },
-    userId: {
-        type: mongoose.Schema.Types.ObjectID,
-        ref: 'User',
-        required: true
-    },
     restaurantId: {
         type: mongoose.Schema.Types.ObjectID,
         ref: 'Restaurant',
         required: true
+    },
+    userId: {
+        type: mongoose.Schema.Types.ObjectID,
+        ref: 'User',
+        required: true
     }
-
 });
 
 const Reservation = mongoose.model("Reservation", reservationSchema);
