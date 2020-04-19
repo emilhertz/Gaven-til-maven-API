@@ -1,8 +1,18 @@
 const Restaurant = require('../models/Restaurant');
 
-module.exports = (req, res) =>{
-
+module.exports = (req, res) => {
+    try{
+        Restaurant.delete({restaurantId: req.userData.restaurantId, adminId: req.userData.adminId});
+        res.status(200).json({
+            message: "Restaurant er nu slettet"
+        })
+    } catch (e) {
+        res.status(401).json({
+            message: "Restaurant kunne ikke slettes"
+        })
+    }
 }
+
 
 //Frontend: Ændre til "slet"
 //Når man trykker på slet, skal den lave et API kald med det endpoint jeg har lavet. Angiv hvilken restaurant der skal slettet.
