@@ -58,7 +58,7 @@ app.post('/restaurant/create', user_auth, admin_auth, storeRestaurantController)
 
 app.post('/login', loginController);
 
-app.post('reservation', postReservationController);
+app.post('/reservation', user_auth, postReservationController);
 
 //Delete
 
