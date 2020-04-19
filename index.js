@@ -19,6 +19,7 @@ const loginController = require('./controllers/loginController');
 
 //import middleware
 const user_auth = require('./middleware/user_authorization');
+const admin_auth = require('./middleware/admin_authorization');
 
 //initialize new express app
 const app = new express();
