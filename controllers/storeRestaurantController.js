@@ -8,7 +8,7 @@ module.exports = async (req, res)=>{
         //req.userData.userId contains the userId of the currently logged in user.
         //We add adminId when a restaurant is created
         await Restaurant.create({ ...req.body, adminId: req.userData.userId});
-        //When a restaurant is succesfully created
+        //When a restaurant is successfully created
         await res.status(200).json({
             message: "Restaurant er nu oprettet"
         })

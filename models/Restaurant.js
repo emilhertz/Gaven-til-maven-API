@@ -45,6 +45,7 @@ const restaurantSchema = new Schema({
 
 restaurantSchema.plugin(uniqueValidator);
 
+//mongoose creates a collection in the database named restaurants, with data dictated by the restaurant schema
 const Restaurant = mongoose.model("Restaurant", restaurantSchema);
 
 module.exports = Restaurant;
