@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('../models/User');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
 
 module.exports =  (req, res)=>{
     bcrypt.hash(req.body.password, 10 ,  (err, hash) => {
@@ -8,7 +8,8 @@ module.exports =  (req, res)=>{
             return res.status(500).json({
                 errors: err.message
             })
-        } else {
+        }
+        else {
          User.create({
              firstName: req.body.firstName,
              lastName: req.body.lastName,
@@ -28,8 +29,6 @@ module.exports =  (req, res)=>{
                      errors: error.message
                  })
              })
-
-
         }
     })
 };
