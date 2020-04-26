@@ -6,7 +6,7 @@ module.exports = (req, res) => {
     })
     //status code 201: "User created"
         .then(response => {return res.status(201).json({
-            message: "Restaurant oprettet!"
+            message: "Reserveret!"
         })})
         .catch(error => {
             console.log(error.message);
