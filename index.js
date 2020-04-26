@@ -37,7 +37,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-    res.header("Access-Control-Allow-Headers", '*'/*"Origin, X-Requested-With, Content-Type, Accept, Authorization"*/);
+    res.header("Access-Control-Allow-Headers", '*');
     res.header('Access-Control-Allow-Data', '*');
     next()
 });
@@ -49,16 +49,16 @@ app.get('/restaurant', getRestaurantsController);
 
 app.get('/user', getUserController);
 
-app.get('/restaurant/admin', user_auth, adminRestaurantsController);
+app.get('/restaurant/admin', user_auth, admin_auth, adminRestaurantsController);
 
 //create
 app.post('/user/create', storeUserController);
 
-app.post('/restaurant/create', user_auth, storeRestaurantController);
+app.post('/restaurant/create', user_auth, admin_auth, storeRestaurantController);
 
 app.post('/login', loginController);
 
 app.post('/reservation', user_auth, postReservationController);
 
 //Delete
-app.delete('/restaurant', user_auth, deleteRestaurantController);
+app.delete('/restaurant', user_auth, admin_auth, deleteRestaurantController);

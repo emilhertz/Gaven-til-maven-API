@@ -4,12 +4,13 @@ const Restaurant = require('../models/Restaurant');
 module.exports =  async (req, res)=>{
   try{
       const restaurants = await Restaurant.find({});
-      res.send({restaurants: restaurants});
+      res.status(200).json({
+          restaurants: restaurants
+      });
   }
   catch (e) {
-      res.send({
-          error: e.message,
-          restaurants: {}
+      res.status(401).json({
+          message: e.message
       });
   }
 };

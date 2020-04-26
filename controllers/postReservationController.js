@@ -6,12 +6,12 @@ module.exports = (req, res) => {
     })
     //status code 201: "User created"
         .then(response => {return res.status(201).json({
-            created: true
+            message: "Restaurant oprettet!"
         })})
         .catch(error => {
             console.log(error.message);
             return res.status(401).json({
-                errors: error.message
+                message: error.message
             })
         })
 
