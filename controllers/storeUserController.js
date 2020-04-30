@@ -17,12 +17,14 @@ module.exports =  (req, res)=>{
              //https://www.youtube.com/watch?v=_EP2qCmLzSE
              password: hash,
              email: req.body.email,
-             isAdmin: req.body.isAdmin
+             isAdmin: false
          })
              //status code 201: "User created"
-             .then(response => {return res.status(201).json({
+             .then(response => {
+                 return res.status(201).json({
                  created: true
-             })})
+                 })
+             })
              .catch(error => {
                  console.log(error.message);
                  return res.status(401).json({

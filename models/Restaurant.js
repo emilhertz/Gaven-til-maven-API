@@ -35,7 +35,7 @@ const restaurantSchema = new Schema({
         required: true
     },
 
-    adminId: {
+    admin: {
         type: mongoose.Schema.Types.ObjectID,
         ref: 'User',
         required: true
