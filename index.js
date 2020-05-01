@@ -16,6 +16,8 @@ const deleteRestaurantController = require('./controllers/deleteRestaurantContro
 const postReservationController = require('./controllers/postReservationController');
 const checkUserController = require('./controllers/checkUserController');
 const loginController = require('./controllers/loginController');
+const getUserReservations = require('./controllers/getUserReservations');
+const deleteReservationController = require('./controllers/deleteReservationController');
 
 //import middleware
 const user_auth = require('./middleware/user_authorization');
@@ -47,14 +49,16 @@ app.get('/check', user_auth, checkUserController);
 
 app.get('/restaurant', getRestaurantsController);
 
-app.get('/user', getUserController);
+//app.get('/user', getUserController);
 
-app.get('/restaurant/admin', user_auth, adminRestaurantsController);
+app.get('/restaurant/admin', user_auth, admin_auth, adminRestaurantsController);
+
+app.get('/user/reservation', user_auth, getUserReservations);
 
 //create
 app.post('/user/create', storeUserController);
 
-app.post('/restaurant/create', user_auth, storeRestaurantController);
+app.post('/restaurant/create', user_auth, admin_auth, storeRestaurantController);
 
 app.post('/login', loginController);
 
@@ -62,3 +66,5 @@ app.post('/reservation', user_auth, postReservationController);
 
 //Delete
 app.delete('/restaurant', user_auth, admin_auth, deleteRestaurantController);
+
+app.delete('/reservation', user_auth, deleteReservationController);

@@ -5,7 +5,7 @@ module.exports =  async (req, res)=>{
     try{
         const user = await User.find({
             username: req.body.username
-        })
+        });
         if (user.length < 1) {
             //Status code for un-authorized
             return res.status(401).json({

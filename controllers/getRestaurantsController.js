@@ -2,14 +2,17 @@ const mongoose = require('mongoose');
 const Restaurant = require('../models/Restaurant');
 
 module.exports =  async (req, res)=>{
-  try{
-      const restaurants = await Restaurant.find({});
-      res.send({restaurants: restaurants});
-  }
-  catch (e) {
-      res.send({
-          error: e.message,
-          restaurants: {}
-      });
-  }
+    Restaurant.find({})
+        .populate("admin")
+        .then(response =>{
+            res.status(200).json({
+                restaurants: response
+            })
+        })
+        .catch(e =>{
+            res.status(401).json({
+                message: e.message
+            });
+        })
 };
+
