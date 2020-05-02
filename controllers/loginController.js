@@ -41,7 +41,7 @@ module.exports = (req, res) => {
                         .status(200)
                         .json({
                             message: 'Auth Successful',
-                            isAdmin: user[0].isAdmin,
+                            user: user[0],
                             token: token
                         })
                 }
