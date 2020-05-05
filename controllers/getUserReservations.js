@@ -7,7 +7,9 @@ module.exports = (req, res) => {
         //finds the reservation with the userId
         customer: req.userData.userId
     })
+        //It converts the reservation-customerid to the customer object
         .populate(["customer", "restaurant"])
+        //Is executed if it finds reservations
         .then(response => {
             res.status(200).json({
                 reservations: response
