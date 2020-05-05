@@ -3,6 +3,8 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 
 module.exports =  (req, res)=>{
+    //'salt' adds random strings before password is hashed
+    //We hash the password and create a user if the hash is successfull
     bcrypt.hash(req.body.password, 10 ,  (err, hash) => {
         if (err){
             return res.status(500).json({
@@ -10,11 +12,12 @@ module.exports =  (req, res)=>{
             })
         }
         else {
+            //The user is created when the hash above is succesfull.
+            //We use the hash in password
          User.create({
              firstName: req.body.firstName,
              lastName: req.body.lastName,
              username: req.body.username,
-             //https://www.youtube.com/watch?v=_EP2qCmLzSE
              password: hash,
              email: req.body.email,
              isAdmin: false

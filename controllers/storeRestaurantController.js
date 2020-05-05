@@ -23,6 +23,7 @@ module.exports = async (req, res)=>{
         await res.status(200).json({
             message: "Restaurant er nu oprettet"
         })
+        //Sends the error
     } catch (e) {
         await res.status(401).json({
             message: e.message
