@@ -14,7 +14,7 @@ const restaurantSchema = new Schema({
         required: true
         },
         streetNumber: {
-            type: Number,
+            type: String,
             required: true
         },
         zipCode: {
