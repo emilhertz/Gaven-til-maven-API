@@ -4,7 +4,9 @@ module.exports = (req, res) => {
         //Creation of an appointment with the following preferences
         timeOfReservation: req.body.timeOfReservation,
         pax: req.body.pax,
-        comment: (req.body.comment !== "" ? req.body.comment: undefined),
+        //Ternary operator that checks if there are any comment
+        //If there are no comments, comments will be undefined, and thus not a part of the object that is saved in the database
+        comment: (req.body.comment !== "" ? req.body.comment : undefined),
         restaurant: req.body.restaurant._id,
         customer: req.body.customer._id
     })
