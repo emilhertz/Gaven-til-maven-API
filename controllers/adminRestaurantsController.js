@@ -10,7 +10,6 @@ module.exports = (req, res) => {
             .populate("admin")
             //returns the restaurants
             .then(restaurants => {
-                console.log(restaurants)
                 return res.status(200).json({
                     restaurants: restaurants
                 })

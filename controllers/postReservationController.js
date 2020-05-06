@@ -4,7 +4,7 @@ module.exports = (req, res) => {
         //Creation of an appointment with the following preferences
         timeOfReservation: req.body.timeOfReservation,
         pax: req.body.pax,
-        comment: req.body.comment,
+        comment: (req.body.comment !== "" ? req.body.comment: undefined),
         restaurant: req.body.restaurant._id,
         customer: req.body.customer._id
     })
