@@ -10,7 +10,6 @@ mongoose.connect('mongodb+srv://emilhertz:toQfuf-qebxi6-jynqic@gaventilmaven-lbp
 const storeUserController = require('./controllers/storeUserController');
 const storeRestaurantController = require('./controllers/storeRestaurantController');
 const getRestaurantsController = require('./controllers/getRestaurantsController');
-const getUserController = require('./controllers/getUserController');
 const adminRestaurantsController = require('./controllers/adminRestaurantsController');
 const deleteRestaurantController = require('./controllers/deleteRestaurantController');
 const postReservationController = require('./controllers/postReservationController');
@@ -48,8 +47,6 @@ app.use((req, res, next) => {
 app.get('/check', user_auth, checkUserController);
 
 app.get('/restaurant', getRestaurantsController);
-
-//app.get('/user', getUserController);
 
 app.get('/restaurant/admin', user_auth, admin_auth, adminRestaurantsController);
 
