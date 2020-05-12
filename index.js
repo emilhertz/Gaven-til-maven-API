@@ -34,7 +34,7 @@ app.listen(4000, (req,res)=>{
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-//Thomas' trylledrik. Tillader samtlige CORS
+// Prevents CORS errors
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
@@ -46,7 +46,7 @@ app.use((req, res, next) => {
 //read
 app.get('/check', user_auth, checkUserController);
 
-app.get('/restaurant', getRestaurantsController);
+app.get('/restaurant', user_auth, getRestaurantsController);
 
 app.get('/restaurant/admin', user_auth, admin_auth, adminRestaurantsController);
 
