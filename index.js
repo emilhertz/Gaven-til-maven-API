@@ -30,9 +30,8 @@ app.listen(4000, (req,res)=>{
     console.log('API is listening to port 4000...');
 });
 
-//middleware
+//Middleware that parses the request body
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
 
 // Prevents CORS errors
 app.use((req, res, next) => {

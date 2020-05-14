@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const Restaurant = require('../models/Restaurant');
 
 module.exports =  async (req, res)=>{
